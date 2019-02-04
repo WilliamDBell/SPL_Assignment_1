@@ -2,4 +2,7 @@
 ; Structures of Programming Languages
 ; William Bell
 
-(display "Hello, World!")
+;Define reverse-general function
+(define (reverse-general L)
+
+)
