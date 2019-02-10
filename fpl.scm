@@ -4,10 +4,12 @@
 
 ;Define reverse-general function
 (define (reverse-general L)
-    (if (list? (car L))
-        (reverse-general L)
-        (if (not (null? L))
-            (append (reverse-general (cdr L)) (list (car L)))
+    (cond ((null? L) '())
+        ((list? L)
+            (append (reverse-general (cdr L))
+                (list (reverse-general (car L)))
+            )
         )
+        (else L)
     )
 )
