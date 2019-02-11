@@ -44,3 +44,11 @@
         (min (car L) (find-min (cdr L) currentMin))
     )
 )
+
+;Helper function to find max number in list
+(define (find-max L currentMax)
+    (if (null? L)
+        currentMax
+        (max (car L) (find-max (cdr L) currentMax))
+    )
+)
