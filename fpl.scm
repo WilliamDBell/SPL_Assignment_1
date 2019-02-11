@@ -52,3 +52,14 @@
         (max (car L) (find-max (cdr L) currentMax))
     )
 )
+
+;Helper function to find the min value over some floor
+(define (find-min-above L Lfloor currentMin)
+    (if (null? L)
+        currentMin
+        (if ( and (> (car L) Lfloor) (< (car L) currentMin))
+            (find-min-above (cdr L) Lfloor (car L))
+            (find-min-above (cdr L) Lfloor currentMin)
+        )
+    )
+)
