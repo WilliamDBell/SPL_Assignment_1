@@ -2,7 +2,7 @@
 ; Structures of Programming Languages
 ; William Bell
 
-;Define reverse-general function
+;#1
 (define (reverse-general L)
     (cond ((null? L) '())
         ((list? L)
@@ -14,6 +14,7 @@
     )
 )
 
+;#2
 (define (sum-up-numbers-simple elemList)
     (if (null? elemList)
         0
@@ -24,6 +25,7 @@
     )
 )
 
+;#3
 (define (sum-up-numbers-general elemList)
     (if (null? elemList)
         0
@@ -62,4 +64,9 @@
             (find-min-above (cdr L) Lfloor currentMin)
         )
     )
+)
+
+;#4
+(define (min-above-min L1 L2)
+    (find-min-above L1 (find-min L2 (car L2)) (find-max L1 (car L1)))
 )
