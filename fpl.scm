@@ -36,3 +36,11 @@
         )      
     )
 )
+
+;Helper function to find minimum number in list
+(define (find-min L currentMin)
+    (if (null? L)
+        currentMin
+        (min (car L) (find-min (cdr L) currentMin))
+    )
+)
