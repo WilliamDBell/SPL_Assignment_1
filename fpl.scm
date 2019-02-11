@@ -62,14 +62,18 @@
 )
 
 ;Helper function to find the min value over some floor
-(define (find-min-above L Lfloor currentMin)
-    (if (null? L)
-        currentMin
-        (if ( and (> (car L) Lfloor) (< (car L) currentMin))
-            (find-min-above (cdr L) Lfloor (car L))
-            (find-min-above (cdr L) Lfloor currentMin)
-        )
-    )
+(define (find-min L currentMin)
+  (if (number? currentMin)  
+      (if (null? L)
+            currentMin
+                (if (number? (car L))
+                    (min (car L) (find-min (cdr L) currentMin))
+                    (find-min (cdr L) currentMin)
+                )
+      )
+  (find-min (cdr L) (car (cdr L)))
+  )
+        
 )
 
 ;#4
