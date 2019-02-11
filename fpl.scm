@@ -13,3 +13,10 @@
         (else L)
     )
 )
+
+(define (sum-up-numbers-simple elemList)
+    (if (null? elemList)
+        0
+        (+ (car elemList) (sum-up-numbers-simple (cdr elemList)))
+    )
+)
