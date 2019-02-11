@@ -43,15 +43,21 @@
 (define (find-min L currentMin)
     (if (null? L)
         currentMin
-        (min (car L) (find-min (cdr L) currentMin))
-    )
+        (if (number? (car L))
+            (min (car L) (find-min (cdr L) currentMin))
+            (find-min (cdr L) currentMin)
+        )
+    )        
 )
 
 ;Helper function to find max number in list
 (define (find-max L currentMax)
     (if (null? L)
         currentMax
-        (max (car L) (find-max (cdr L) currentMax))
+        (if (number? (car L))
+            (max (car L) (find-max (cdr L) currentMax))
+            (find-max (cdr L) currentMax)
+        )
     )
 )
 
