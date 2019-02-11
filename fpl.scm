@@ -68,5 +68,11 @@
 
 ;#4
 (define (min-above-min L1 L2)
-    (find-min-above L1 (find-min L2 (car L2)) (find-max L1 (car L1)))
+    (if (null? L1)
+        #f
+        (if (null? L2)
+            (find-min L1 (car L1))
+            (find-min-above L1 (find-min L2 (car L2)) (find-max L1 (car L1)))
+        )
+    )
 )
