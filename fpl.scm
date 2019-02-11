@@ -23,3 +23,16 @@
         )    
     )
 )
+
+(define (sum-up-numbers-general elemList)
+    (if (null? elemList)
+        0
+        (if (list? (car elemList))
+            (+ (sum-up-numbers-general (car elemList)) (sum-up-numbers-general (cdr elemList)))
+            (if (number? (car elemList))
+                (+ (car elemList) (sum-up-numbers-general (cdr elemList)))
+                (sum-up-numbers-general (cdr elemList))
+            )
+        )      
+    )
+)
